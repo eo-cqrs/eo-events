@@ -14,6 +14,5 @@ class EventTest {
    */
   @Test
   void simple() {
-    final Event.S simple = new Event.S();
   }
 }
