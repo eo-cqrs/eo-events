@@ -29,7 +29,7 @@ final class DomainObjectTest {
 
     private record RegisteredUser(String name, String password)
         implements DomainObject<UserRegistration> {
-        @Override
+            @Override
             public UserRegistration asEvent() {
                 return new UserRegistration(this);
             }
