@@ -30,7 +30,7 @@ package io.github.eocqrs.qce;
  */
 public interface Event {
 
-  String paylod();
+  String payload();
 
   void commit(Aggregate aggregate);
 }
