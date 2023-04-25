@@ -22,13 +22,17 @@
 
 package io.github.eocqrs.qce;
 
+import org.cactoos.Scalar;
+
+import java.util.Set;
+
 /**
- * Aggregate.
+ * Aggregate - the chain of events.
  *
  * @author Aliaksei Bialiauski (abialiauski.dev@gmail.com)
  * @since 0.0.0
  */
-public interface Aggregate {
-
-  String veil();
+public interface Aggregate<D extends DomainObject> extends Scalar<Set<Event<D>>> {
+    @Override
+    Set<Event<D>> value();
 }

@@ -23,14 +23,23 @@
 package io.github.eocqrs.qce;
 
 /**
- * Event.
+ * An event is some action on a domain object.
  *
+ * @see DomainObject
+ * @param <D> The domain object what is event for.
  * @author Aliaksei Bialiauski (abialiauski.dev@gmail.com)
  * @since 0.0.0
  */
-public interface Event {
+public interface Event<D extends DomainObject> {
+
+  /**
+   * Submit self to domain object.
+   *
+   * @param object The domain object
+   * @return <b>New</b> domain object with updated state
+   */
+  D submitTo(D object);
 
   String payload();
 
-  void commit(Aggregate aggregate);
 }

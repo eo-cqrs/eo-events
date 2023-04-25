@@ -1,16 +1,13 @@
 package io.github.eocqrs.qce;
 
 /**
- * The simple domain object
+ * The simple domain object, "unit" of the domain.
  *
- * @param <E> The event type to produce
+ * @author Ivan Ivanchuk(l3r8y@duck.com)
+ * @since 0.0.0
  */
-public interface DomainObject<E extends Event> {
+public interface DomainObject<T extends DomainObject> {
 
-    /**
-     * Domain object as event
-     *
-     * @return Domain object transformed to event
-     */
-    E asEvent();
+    void apply(Aggregate<T> aggregate);
+
 }
