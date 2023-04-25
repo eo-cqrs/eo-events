@@ -9,9 +9,11 @@ class DomainObjectTest {
         final DomainObject<User> user = new User("john doe");
         final Aggregate<User> userAggregate = new UserAggregate(
             new PrintUser(),
-            new UserUpdateName("not john doe"),
-            new PrintUser()
+            new UserUpdateName("not john doe")
         );
         user.apply(userAggregate);
+        user.states().forEach(
+            (load, state) -> System.out.printf("load: %s, state: %s%n", load, state)
+        );
     }
 }

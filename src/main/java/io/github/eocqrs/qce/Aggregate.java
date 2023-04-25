@@ -35,4 +35,6 @@ import java.util.Set;
 public interface Aggregate<D extends DomainObject> extends Scalar<Set<Event<D>>> {
     @Override
     Set<Event<D>> value();
+
+    Aggregate<D> append(Event<D> event);
 }

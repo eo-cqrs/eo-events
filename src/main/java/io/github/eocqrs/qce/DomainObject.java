@@ -1,5 +1,7 @@
 package io.github.eocqrs.qce;
 
+import java.util.Map;
+
 /**
  * The simple domain object, "unit" of the domain.
  *
@@ -10,4 +12,5 @@ public interface DomainObject<T extends DomainObject> {
 
     void apply(Aggregate<T> aggregate);
 
+    Map<String, T> states();
 }

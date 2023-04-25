@@ -9,6 +9,6 @@ public class PrintUser implements Event<User> {
 
     @Override
     public String payload() {
-        return null;
+        return "Printed %s at %d".formatted(this, System.currentTimeMillis());
     }
 }
