@@ -26,7 +26,7 @@ SOFTWARE.
   <files>
     <file>
       <exists>true</exists>
-      <location>LICENSE</location>
+      <location>LICENSE.txt</location>
       <contains>2023</contains>
     </file>
   </files>
