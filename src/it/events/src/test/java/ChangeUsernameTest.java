@@ -20,7 +20,7 @@ final class ChangeUsernameTest {
     MatcherAssert.assertThat(
       "Name has changed",
       new ChangeUsername(name)
-        .submitTo(user)
+        .value(user)
         .username(),
       Matchers.equalTo(name)
     );

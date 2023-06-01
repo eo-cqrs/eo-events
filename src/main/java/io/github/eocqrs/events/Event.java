@@ -38,7 +38,7 @@ public interface Event<X extends Resource<X>> {
    * @param res Object for whom event will be submitted
    * @return New version of Resource
    */
-  X submitTo(X res);
+  X value(X res);
 
   /**
    * Event payload.
