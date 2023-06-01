@@ -1,19 +1,22 @@
+<img alt="logo" src="https://eo-cqrs.github.io/.github/eo-cqrs.svg" height="100px" />
+
+[![Managed By Self XDSD](https://self-xdsd.com/b/mbself.svg)](https://self-xdsd.com/p/eo-cqrs/eo-events?provider=github)
+
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
-[![DevOps By Rultor.com](https://www.rultor.com/b/eo-cqrs/eo-qce)](https://www.rultor.com/p/eo-cqrs/eo-qce)
+[![DevOps By Rultor.com](https://www.rultor.com/b/eo-cqrs/eo-events)](https://www.rultor.com/p/eo-cqrs/eo-events)
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 <br>
 
-[![PDD status](http://www.0pdd.com/svg?name=eo-cqrs/eo-qce)](http://www.0pdd.com/p?name=eo-cqrs/eo-qce)
-[![maven](https://github.com/eo-cqrs/eo-qce/actions/workflows/maven.yml/badge.svg)](https://github.com/eo-cqrs/eo-qce/actions/workflows/maven.yml)
-[![codecov](https://codecov.io/gh/eo-cqrs/eo-qce/branch/master/graph/badge.svg?token=CR7SV7NPBV)](https://codecov.io/gh/eo-cqrs/eo-qce)
-[![Hits-of-Code](https://hitsofcode.com/github/eo-cqrs/eo-qce)](https://hitsofcode.com/view/github/eo-cqrs/eo-qce)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/eo-cqrs/eo-qce/blob/master/LICENSE)
+[![mvn](https://github.com/eo-cqrs/eo-events/actions/workflows/mvn.yml/badge.svg)](https://github.com/eo-cqrs/eo-events/actions/workflows/mvn.yml)
+[![Hits-of-Code](https://hitsofcode.com/github/eo-cqrs/eo-events)](https://hitsofcode.com/view/github/eo-cqrs/eo-events)
+[![PDD status](http://www.0pdd.com/svg?name=eo-cqrs/eo-events)](http://www.0pdd.com/p?name=eo-cqrs/eo-events)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/eo-cqrs/eo-events/blob/master/LICENSE.txt)
 
 Project architect: [@h1alexbel](https://github.com/h1alexbel)
 
-Objects for handling Queries, Commands, and Events in Event Sourcing & CQRS.
+Objects for handling Events.
 
-**Motivation**. We don't have objects for enabling Event Sourcing & CQRS with queries, commands, and events in elegant way. 
+**Motivation**. We don't have objects or specs for enabling Event Sourcing and events in elegant way. 
 
 **Principles**. These are the [design principles](https://www.elegantobjects.org/#principles) behind eo-kafka.
 
@@ -23,14 +26,14 @@ Maven:
 ```xml
 <dependency>
   <groupId>io.github.eo-cqrs</groupId>
-  <artifactId>eo-qce</artifactId>
+  <artifactId>eo-events</artifactId>
 </dependency>
 ```
 
 Gradle:
 ```groovy
 dependencies {
-    compile 'io.github.eo-cqrs:eo-qce:<version>'
+    compile 'io.github.eo-cqrs:eo-events:<version>'
 }
 ```
 
