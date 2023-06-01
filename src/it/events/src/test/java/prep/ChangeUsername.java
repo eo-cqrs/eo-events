@@ -13,7 +13,7 @@ public final class ChangeUsername implements Event<User> {
   private final String name;
 
   @Override
-  public User submitTo(final User user) {
+  public User value(final User user) {
     return new EnUser(user.id(), this.name);
   }
 
