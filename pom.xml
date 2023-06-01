@@ -30,11 +30,11 @@ SOFTWARE.
     <version>0.65.0</version>
   </parent>
   <groupId>io.github.eo-cqrs</groupId>
-  <artifactId>eo-qce</artifactId>
+  <artifactId>eo-events</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>eo-qce</name>
+  <name>eo-events</name>
   <description>
-    Objects for handling Queries, Commands and Events in Event Sourcing &amp; CQRS
+    Objects for handling Events
   </description>
   <inceptionYear>2023</inceptionYear>
   <developers>
@@ -52,28 +52,28 @@ SOFTWARE.
   </developers>
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/eo-cqrs/eo-qce/issues</url>
+    <url>https://github.com/eo-cqrs/eo-events/issues</url>
   </issueManagement>
   <ciManagement>
     <system>GitHub Actions</system>
-    <url>https://github.com/eo-cqrs/eo-qce/actions</url>
+    <url>https://github.com/eo-cqrs/eo-events/actions</url>
   </ciManagement>
   <licenses>
     <license>
       <name>MIT</name>
-      <url>https://github.com/eo-cqrs/eo-qce/blob/master/LICENSE.txt</url>
+      <url>https://github.com/eo-cqrs/eo-events/blob/master/LICENSE.txt</url>
       <distribution>site</distribution>
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git://github.com/eo-cqrs/eo-qce.git</connection>
-    <developerConnection>scm:git:ssh://github.com:eo-cqrs/eo-qce.git</developerConnection>
-    <url>https://github.com/eo-cqrs/eo-qce/tree/master</url>
+    <connection>scm:git:git://github.com/eo-cqrs/eo-events.git</connection>
+    <developerConnection>scm:git:ssh://github.com:eo-cqrs/eo-events.git</developerConnection>
+    <url>https://github.com/eo-cqrs/eo-events/tree/master</url>
   </scm>
   <distributionManagement>
     <site>
-      <id>eo-cqrs.github.io/eo-qce/</id>
-      <url>https://eo-cqrs.github.io/eo-qce/</url>
+      <id>eo-cqrs.github.io/eo-events/</id>
+      <url>https://eo-cqrs.github.io/eo-events/</url>
     </site>
   </distributionManagement>
   <properties>
@@ -95,6 +95,7 @@ SOFTWARE.
     <sa-tan.version>0.1.5</sa-tan.version>
     <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
     <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+    <maven-invoker-plugin.version>3.5.1</maven-invoker-plugin.version>
   </properties>
   <dependencies>
     <dependency>
@@ -366,6 +367,44 @@ SOFTWARE.
               <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>invoker</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <version>${maven-invoker-plugin.version}</version>
+            <configuration>
+              <cloneProjectsTo>${project.build.directory}/its</cloneProjectsTo>
+              <settingsFile>src/it/settings.xml</settingsFile>
+              <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+              <postBuildHookScript>verify</postBuildHookScript>
+              <streamLogsOnFailures>true</streamLogsOnFailures>
+            </configuration>
+            <executions>
+              <execution>
+                <id>integration-tests</id>
+                <goals>
+                  <goal>install</goal>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>report</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>

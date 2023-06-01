@@ -20,23 +20,30 @@
  * SOFTWARE.
  */
 
-package io.github.eocqrs.qce;
-
-import java.util.Map;
+package io.github.eocqrs.events;
 
 /**
- * The simple domain object, "unit" of the domain.
+ * Event.
  *
- * @param <D> Domain object type
+ * @param <X> The object what is event for
  * @author Aliaksei Bialiauski (abialiauski.dev@gmail.com)
+ * @see Resource
  * @since 0.0.0
  */
-public interface DomainObject<D extends DomainObject<D>> {
+public interface Event<X extends Resource<X>> {
 
   /**
-   * Objects states.
+   * Submit event to related resource.
    *
-   * @return Map of states
+   * @param res Object for whom event will be submitted
+   * @return New version of Resource
    */
-  Map<String, D> states();
+  X submitTo(X res);
+
+  /**
+   * Event payload.
+   *
+   * @return Event payload as string
+   */
+  String payload();
 }

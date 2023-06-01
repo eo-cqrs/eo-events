@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2022 Aliaksei Bialiauski, EO-CQRS
+ *  Copyright (c) 2023 Aliaksei Bialiauski, EO-CQRS
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,11 +20,30 @@
  * SOFTWARE.
  */
 
+package io.github.eocqrs.events;
+
+import org.cactoos.Scalar;
+
+import java.util.Set;
+
 /**
- * QCE API.
+ * The chain of events.
  *
+ * @param <X> The object what is an event chain aka Aggregate for
  * @author Aliaksei Bialiauski (abialiauski.dev@gmail.com)
  * @since 0.0.0
  */
+public interface EventChain<X extends Resource<X>>
+  extends Scalar<Set<Event<X>>> {
 
-package io.github.eocqrs.qce;
+  @Override
+  Set<Event<X>> value();
+
+  /**
+   * Appends event to itself.
+   *
+   * @param event Event to apply
+   * @return New version of a chain
+   */
+  EventChain<X> append(Event<X> event);
+}

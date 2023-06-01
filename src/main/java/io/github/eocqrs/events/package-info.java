@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2023 Aliaksei Bialiauski, EO-CQRS
+ *  Copyright (c) 2022 Aliaksei Bialiauski, EO-CQRS
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,30 +20,11 @@
  * SOFTWARE.
  */
 
-package io.github.eocqrs.qce;
-
 /**
- * Event.
+ * QCE API.
  *
- * @param <D> The domain object what is event for
  * @author Aliaksei Bialiauski (abialiauski.dev@gmail.com)
- * @see DomainObject
  * @since 0.0.0
  */
-public interface Event<D extends DomainObject<D>> {
 
-  /**
-   * Submit event to domain object.
-   *
-   * @param object Domain object for whom event will be submitted
-   * @return Domain object
-   */
-  DomainObject<D> submitTo(D object);
-
-  /**
-   * Event payload.
-   *
-   * @return Event payload as string
-   */
-  String payload();
-}
+package io.github.eocqrs.events;

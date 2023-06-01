@@ -1,5 +1,7 @@
 /*
- *  Copyright (c) 2023 Aliaksei Bialiauski, EO-CQRS
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2023 Aliaksei Bialiauski, EO-CQRS
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -8,8 +10,8 @@
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -19,31 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package io.github.eocqrs.qce;
-
-import org.cactoos.Scalar;
-
-import java.util.Set;
-
-/**
- * The chain of events.
- *
- * @param <D> The domain object what is an event chain aka Aggregate for
- * @author Aliaksei Bialiauski (abialiauski.dev@gmail.com)
- * @since 0.0.0
- */
-public interface EventChain<D extends DomainObject<D>>
-  extends Scalar<Set<Event<D>>> {
-
-  @Override
-  Set<Event<D>> value();
-
-  /**
-   * Appends event to itself.
-   *
-   * @param event Event to apply
-   * @return New version of a chain
-   */
-  EventChain<D> append(Event<D> event);
-}
+String log = new File(basedir, 'build.log').text;
+[
+    "[INFO] BUILD SUCCESS"
+].each { assert log.contains(it): "Log doesn't contain ['$it']" }
+true
