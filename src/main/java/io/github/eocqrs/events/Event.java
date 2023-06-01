@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2022 Aliaksei Bialiauski, EO-CQRS
+ *  Copyright (c) 2023 Aliaksei Bialiauski, EO-CQRS
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,15 +20,30 @@
  * SOFTWARE.
  */
 
-package io.github.eocqrs.qce;
+package io.github.eocqrs.events;
 
 /**
- * Aggregate.
+ * Event.
  *
+ * @param <X> The object what is event for
  * @author Aliaksei Bialiauski (abialiauski.dev@gmail.com)
+ * @see Resource
  * @since 0.0.0
  */
-public interface Aggregate {
+public interface Event<X extends Resource<X>> {
 
-  String veil();
+  /**
+   * Submit event to related resource.
+   *
+   * @param res Object for whom event will be submitted
+   * @return New version of Resource
+   */
+  X submitTo(X res);
+
+  /**
+   * Event payload.
+   *
+   * @return Event payload as string
+   */
+  String payload();
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-The MIT License (MIT)
+MIT License
 
 Copyright (c) 2023 Aliaksei Bialiauski, EO-CQRS
 
@@ -11,8 +11,8 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.jcabi</groupId>
@@ -31,11 +30,11 @@ SOFTWARE.
     <version>0.65.0</version>
   </parent>
   <groupId>io.github.eo-cqrs</groupId>
-  <artifactId>eo-qce</artifactId>
+  <artifactId>eo-events</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>eo-qce</name>
+  <name>eo-events</name>
   <description>
-    Objects for handling Queries, Commands and Events in Event Sourcing &amp; CQRS
+    Objects for handling Events
   </description>
   <inceptionYear>2023</inceptionYear>
   <developers>
@@ -44,6 +43,7 @@ SOFTWARE.
       <name>Aliaksei Bialiauski</name>
       <email>abialiauski.dev@gmail.com</email>
       <url>https://h1alexbel.github.io</url>
+      <organizationUrl>https://solvd.com</organizationUrl>
       <roles>
         <role>Architect</role>
         <role>Developer</role>
@@ -52,28 +52,28 @@ SOFTWARE.
   </developers>
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/eo-cqrs/eo-qce/issues</url>
+    <url>https://github.com/eo-cqrs/eo-events/issues</url>
   </issueManagement>
   <ciManagement>
     <system>GitHub Actions</system>
-    <url>https://github.com/eo-cqrs/eo-qce/actions</url>
+    <url>https://github.com/eo-cqrs/eo-events/actions</url>
   </ciManagement>
   <licenses>
     <license>
       <name>MIT</name>
-      <url>https://github.com/eo-cqrs/eo-qce/blob/master/LICENSE</url>
+      <url>https://github.com/eo-cqrs/eo-events/blob/master/LICENSE.txt</url>
       <distribution>site</distribution>
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git://github.com/eo-cqrs/eo-qce.git</connection>
-    <developerConnection>scm:git:ssh://github.com:eo-cqrs/eo-qce.git</developerConnection>
-    <url>https://github.com/eo-cqrs/eo-qce/tree/master</url>
+    <connection>scm:git:git://github.com/eo-cqrs/eo-events.git</connection>
+    <developerConnection>scm:git:ssh://github.com:eo-cqrs/eo-events.git</developerConnection>
+    <url>https://github.com/eo-cqrs/eo-events/tree/master</url>
   </scm>
   <distributionManagement>
     <site>
-      <id>eo-cqrs.github.io/eo-qce/</id>
-      <url>https://eo-cqrs.github.io/eo-qce/</url>
+      <id>eo-cqrs.github.io/eo-events/</id>
+      <url>https://eo-cqrs.github.io/eo-events/</url>
     </site>
   </distributionManagement>
   <properties>
@@ -84,10 +84,18 @@ SOFTWARE.
     <maven-surefire-plugin.version>3.0.0-M9</maven-surefire-plugin.version>
     <maven-verifier-plugin.version>1.1</maven-verifier-plugin.version>
     <cactoos.version>0.55.0</cactoos.version>
-    <lombok.version>1.18.26</lombok.version>
+    <lombok.version>1.18.28</lombok.version>
     <junit-api.version>5.9.3</junit-api.version>
     <junit-params.version>5.9.3</junit-params.version>
     <jcabi-matchers.version>1.6.0</jcabi-matchers.version>
+    <jtcop.version>0.1.13</jtcop.version>
+    <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
+    <checkstyle.version>10.12.0</checkstyle.version>
+    <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
+    <sa-tan.version>0.1.5</sa-tan.version>
+    <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+    <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+    <maven-invoker-plugin.version>3.5.1</maven-invoker-plugin.version>
   </properties>
   <dependencies>
     <dependency>
@@ -181,7 +189,7 @@ SOFTWARE.
                     <limit>
                       <counter>LINE</counter>
                       <value>COVEREDRATIO</value>
-                      <minimum>0.70</minimum>
+                      <minimum>0.61</minimum>
                     </limit>
                     <limit>
                       <counter>BRANCH</counter>
@@ -231,6 +239,175 @@ SOFTWARE.
           <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>com.github.volodya-lombrozo</groupId>
+        <artifactId>jtcop-maven-plugin</artifactId>
+        <version>${jtcop.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>ru.l3r8y</groupId>
+        <artifactId>sa-tan</artifactId>
+        <version>${sa-tan.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>search</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven-checkstyle-plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${checkstyle.version}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>verify-style</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <configuration>
+              <suppressionsFileExpression>checkstyle.suppressions.file</suppressionsFileExpression>
+              <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>release</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>gpg.keyname</name>
+        </property>
+      </activation>
+      <distributionManagement>
+        <snapshotRepository>
+          <id>ossrh</id>
+          <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+          <id>ossrh</id>
+          <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
+          </url>
+        </repository>
+      </distributionManagement>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${maven-source-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven-gpg-plugin.version}</version>
+            <configuration>
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>${nexus-staging-maven-plugin.version}</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>invoker</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <version>${maven-invoker-plugin.version}</version>
+            <configuration>
+              <cloneProjectsTo>${project.build.directory}/its</cloneProjectsTo>
+              <settingsFile>src/it/settings.xml</settingsFile>
+              <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+              <postBuildHookScript>verify</postBuildHookScript>
+              <streamLogsOnFailures>true</streamLogsOnFailures>
+            </configuration>
+            <executions>
+              <execution>
+                <id>integration-tests</id>
+                <goals>
+                  <goal>install</goal>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>report</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

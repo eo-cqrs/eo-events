@@ -11,7 +11,7 @@
 
 Project architect: [@h1alexbel](https://github.com/h1alexbel)
 
-Objects for handling Queries, Commands and Events in Event Sourcing & CQRS.
+Objects for handling Queries, Commands, and Events in Event Sourcing & CQRS.
 
 **Motivation**. We don't have objects for enabling Event Sourcing & CQRS with queries, commands, and events in elegant way. 
 
