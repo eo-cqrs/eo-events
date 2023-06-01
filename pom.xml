@@ -84,7 +84,7 @@ SOFTWARE.
     <maven-surefire-plugin.version>3.0.0-M9</maven-surefire-plugin.version>
     <maven-verifier-plugin.version>1.1</maven-verifier-plugin.version>
     <cactoos.version>0.55.0</cactoos.version>
-    <lombok.version>1.18.26</lombok.version>
+    <lombok.version>1.18.28</lombok.version>
     <junit-api.version>5.9.2</junit-api.version>
     <junit-params.version>5.9.2</junit-params.version>
     <jcabi-matchers.version>1.6.0</jcabi-matchers.version>
