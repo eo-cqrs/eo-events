@@ -22,28 +22,28 @@
 
 package io.github.eocqrs.qce;
 
+import org.cactoos.Scalar;
+
+import java.util.Set;
+
 /**
- * Event.
+ * The chain of events.
  *
- * @param <D> The domain object what is event for
+ * @param <D> The domain object what is an event chain aka Aggregate for
  * @author Aliaksei Bialiauski (abialiauski.dev@gmail.com)
- * @see DomainObject
  * @since 0.0.0
  */
-public interface Event<D extends DomainObject<D>> {
+public interface EventChain<D extends DomainObject<D>>
+  extends Scalar<Set<Event<D>>> {
+
+  @Override
+  Set<Event<D>> value();
 
   /**
-   * Submit event to domain object.
+   * Appends event to itself.
    *
-   * @param object Domain object for whom event will be submitted
-   * @return Domain object
+   * @param event Event to apply
+   * @return New version of a chain
    */
-  DomainObject<D> submitTo(D object);
-
-  /**
-   * Event payload.
-   *
-   * @return Event payload as string
-   */
-  String payload();
+  EventChain<D> append(Event<D> event);
 }

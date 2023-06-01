@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2022 Aliaksei Bialiauski, EO-CQRS
+ *  Copyright (c) 2023 Aliaksei Bialiauski, EO-CQRS
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,13 +22,21 @@
 
 package io.github.eocqrs.qce;
 
+import java.util.Map;
+
 /**
- * Aggregate.
+ * The simple domain object, "unit" of the domain.
  *
+ * @param <D> Domain object type
  * @author Aliaksei Bialiauski (abialiauski.dev@gmail.com)
  * @since 0.0.0
  */
-public interface Aggregate {
+public interface DomainObject<D extends DomainObject<D>> {
 
-  String veil();
+  /**
+   * Objects states.
+   *
+   * @return Map of states
+   */
+  Map<String, D> states();
 }
