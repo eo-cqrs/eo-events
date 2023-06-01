@@ -27,4 +27,4 @@
  * @since 0.0.0
  */
 
-package io.github.eocqrs.qce;
+package io.github.eocqrs.events;
