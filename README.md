@@ -8,6 +8,8 @@
 <br>
 
 [![mvn](https://github.com/eo-cqrs/eo-events/actions/workflows/mvn.yml/badge.svg)](https://github.com/eo-cqrs/eo-events/actions/workflows/mvn.yml)
+[![maven central](http://maven-badges.herokuapp.com/maven-central/io.github.eo-cqrs/eo-events/badge.svg)](https://search.maven.org/artifact/io.github.eo-cqrs/eo-events)
+[![javadoc](https://javadoc.io/badge2/io.github.eo-cqrs/eo-events/javadoc.svg)](https://javadoc.io/doc/io.github.eo-cqrs/eo-events)
 [![Hits-of-Code](https://hitsofcode.com/github/eo-cqrs/eo-events)](https://hitsofcode.com/view/github/eo-cqrs/eo-events)
 [![PDD status](http://www.0pdd.com/svg?name=eo-cqrs/eo-events)](http://www.0pdd.com/p?name=eo-cqrs/eo-events)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/eo-cqrs/eo-events/blob/master/LICENSE.txt)
