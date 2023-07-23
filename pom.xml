@@ -85,8 +85,8 @@ SOFTWARE.
     <maven-verifier-plugin.version>1.1</maven-verifier-plugin.version>
     <cactoos.version>0.55.0</cactoos.version>
     <lombok.version>1.18.28</lombok.version>
-    <junit-api.version>5.9.3</junit-api.version>
-    <junit-params.version>5.9.3</junit-params.version>
+    <junit-api.version>5.10.0</junit-api.version>
+    <junit-params.version>5.10.0</junit-params.version>
     <jcabi-matchers.version>1.6.0</jcabi-matchers.version>
     <jtcop.version>0.1.16</jtcop.version>
     <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
