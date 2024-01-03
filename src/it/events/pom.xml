@@ -34,11 +34,11 @@ SOFTWARE.
     <maven.compiler.source>${project.java.version}</maven.compiler.source>
     <maven.compiler.target>${project.java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>5.9.3</junit.version>
+    <junit.version>5.10.0</junit.version>
     <hamcrest.version>2.2</hamcrest.version>
     <commons-lang3.version>3.12.0</commons-lang3.version>
-    <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
-    <mockito-core.version>5.3.1</mockito-core.version>
+    <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+    <mockito-core.version>5.5.0</mockito-core.version>
   </properties>
   <dependencies>
     <dependency>
@@ -50,7 +50,7 @@ SOFTWARE.
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.28</version>
+      <version>1.18.30</version>
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
@@ -67,7 +67,7 @@ SOFTWARE.
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>2.0.7</version>
+      <version>2.0.9</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
